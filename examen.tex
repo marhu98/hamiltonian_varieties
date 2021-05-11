@@ -1,0 +1,1277 @@
+\documentclass[10pt,twoneside]{article}
+%\documentclass[10pt,oneside]{book}
+%\documentclass[14pt]{article}   	% use "amsart" instead of "article" for AMSLaTeX format
+%\pagestyle{headings}
+
+\usepackage{natbib}
+\usepackage{hyperref}
+
+
+
+\usepackage{titlesec}
+
+
+\usepackage{enumitem}
+
+%\usepackage[spanish]{babel}
+ 
+\titleformat{\chapter}[display]
+  {\normalfont\bfseries}{}{0pt}{\Huge}
+
+\usepackage{blindtext}
+\usepackage[T1]{fontenc}
+
+
+\usepackage{bbm}
+
+\usepackage[margin=1in,footskip=.25in]{geometry}
+
+
+\usepackage{geometry}
+\usepackage{mathtools}    
+\usepackage[latin9]{inputenc}  	
+\usepackage[bottom]{footmisc}	
+\geometry{letterpaper}                   		
+\usepackage{graphicx}														
+\usepackage{amssymb}
+\usepackage{ragged2e}
+\newcommand{\kfour}{\mathbb{K}^4}
+\newcommand{\ktwo}{\mathbb{K}^2}
+\newcommand{\pthree}{\mathbb{P}^3}
+\newcommand{\afin}{\mathbb{A}}
+\newcommand{\ov}{\overrightarrow}
+
+
+\usepackage{tikz-cd}
+
+
+\usepackage{faktor}
+
+
+\usepackage{mathtools}
+
+
+%\usepackage[spanish]{babel} % espaÃƒÂ±ol
+%\usepackage[utf8]{inputenc} % acentos sin codigo
+%\usepackage{graphicx} % graficos
+%\usepackage{amssymb} 
+%\usepackage{amsmath,amsthm} 
+%\usepackage{amsthm} 
+
+%\usepackage{hyperref}
+%\usepackage{mathtools}
+\usepackage{mathrsfs} % Letras caligrÃ¡ficas
+\usepackage{bm}
+
+
+
+\usepackage{xcolor}
+
+\newcommand{\mcm}{\qopname \relax o{mcm}}
+
+\newcommand{\massey}[3]{\langle[ {#1} ],[ {#2} ],[ {#3} ]\rangle}
+\newcommand{\module}[1]{\vert #1 \lvert }
+\newcommand{\dotprod}[2]{\langle #1,#2 \rangle}
+\newcommand{\mbot}{{(\bot)}}
+%\newcommand{\isoequal}{\stackrel{\text{iso}}{=}}
+\newcommand{\isoequal}{\simeq}
+\newcommand{\difequal}{\stackrel{\text{dif}}{=}}
+\newcommand{\defequal}{\stackrel{\text{def}}{=}}
+\newcommand{\isoapprox}{\stackrel{\text{iso}}{\displaystyle\approx}}
+\newcommand{\Cech}{\v{C}ech}
+\newcommand{\difpartial}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\difantipartial}[2]{\frac{\partial #1}{\overline{\partial} #2}}
+\newcommand{\antipartial}{{\overline{\partial }}}
+
+\newcommand{\comilla}{{}"{}}
+
+
+\newcommand{\e}[2]{e_{#1}^{(#2)}}
+
+\newcommand{\f}[2]{f_{#1}^{(#2)}}
+
+
+\usepackage{amsthm}
+
+
+
+\newcommand{\ifff}{if and only if }
+
+
+\renewcommand\qedsymbol{$QED$}
+
+
+%\footskip = 0pt
+
+%\setlength{\parindent}{0cm}
+
+\usepackage{titlesec}
+\titleformat{\section}[block]{\color{black}\Large\bfseries\filcenter}{}{1em}{}
+
+\date{}
+\begin{document}
+
+\section*{Exercise 1}
+
+\subsection*{1}
+\noindent
+
+Let $x \in M$, then we can find a neighbourhood $U$ of $x$ and a chart $x:U\rightarrow \mathbb{R}^n$,
+and $\{\frac{\partial}{\partial x_i}\}$ be the induced basis on $TU$.
+
+Then locally, we can write:
+$$
+X=\sum x_i {\frac{\partial}{\partial x_i}}
+;\quad
+Y=\sum y_j {\frac{\partial}{\partial x_j}}
+$$
+
+Then a simple calculation yields:
+$$
+XYf
+=
+\sum x_i {\frac{\partial y_j}{\partial x_i}}{\frac{\partial f}{\partial x_j}}
++
+\sum
+x_i
+y_j
+\frac
+{\partial^2 f}
+{\partial x_j \partial x_i}
+;\quad
+YXf
+=
+\sum y_j {\frac{\partial x_i}{\partial x_j}}{\frac{\partial f}{\partial x_i}}
++
+\sum
+x_i
+y_j
+\frac
+{\partial^2 f}
+{\partial x_j \partial x_i}
+$$
+
+$$
+[X,Y]
+=
+\sum \left(
+x_i {\frac{\partial y_j}{\partial x_i}}
+-
+y_j {\frac{\partial x_i}{\partial x_i}}
+\right)
+\frac{\partial f}
+{\partial x_j}
+$$
+
+Clearly, $B_x(X,Y)$ is symmetric \ifff $[X,Y]_x=0$. Since 
+by definition of $B$,
+$$B \cap U=
+\left\{
+x\in U
+\left\vert
+\frac
+{\partial f}
+{\partial x_j}
+(x)
+=
+0
+\right.
+\right\}
+$$
+%$
+%\frac
+%{\partial f}
+%{\partial x_j}
+%(x)
+%=
+%0
+%,
+%\forall x\in B
+%, \forall j \in\{1,\ldots,\text{dim } M\}$.
+We get that if $x\in B$ then:
+
+\begin{equation}
+\label{eq:hessian1}
+(XYf)_x
+=
+\sum
+x_i
+(x)
+y_j
+(x)
+\frac
+{\partial^2 f}
+{\partial x_j \partial x_i}
+(x)
+;\quad
+(YXf)_x
+=
+\sum
+x_i(x)
+y_j(x)
+\frac
+{\partial^2 f}
+{\partial x_j \partial x_i}
+(x)
+;\quad
+[X,Y]_x
+=
+0
+\end{equation}
+
+ Hence the symmetry of $B_x(X,Y)$ is proven and from \eqref{eq:hessian1} is clear that is only depends on $x_i(x)$ and
+ $y_i(x)$, that is: $B_x(X,Y)$ only depends on $X_x$ and $Y_x$.
+ 
+ Finally, if $B$ is a submanifold, then $X\in TB$, $X$
+ can be integrated to obtain a curve $x(t)$ contained in B so that $X_{x(t)}=x'(t)$.
+ 
+Since $x(t)\in B$ we have $\frac{\partial f}{\partial x_i}(x(t))=0$
+, 
+we can differentiate to obtain:
+$$
+% \frac{d}{dt}
+0
+=
+%\sum x_i'(t)
+%\frac{\partial f}{\partial x_i}
+%+
+\sum
+_j
+x_j'(t)
+\frac{\partial^2 f}{\partial x_i x_j}
+\quad,\forall i\in\{1,\ldots,n\}
+$$
+
+Since $x_i'(0)=x_i(x)$, by the above calculations we have that:
+
+$$
+(XYf)_x
+=
+\sum_{i,j=1}^n
+x_i(x)
+y_j(x)
+\frac
+{\partial^2 f}
+{\partial x_j \partial x_i}
+(x)
+=
+\sum_{j=1}^n
+\left\{
+y_j(x)
+\sum_{i=1}^n
+x_i(x)
+\frac
+{\partial^2 f}
+{\partial x_j \partial x_i}
+\right\}
+=
+0
+$$
+
+This proves the case $X_x\in T_xB$.
+The case $Y_x\in T_xB$ is completely analogous, since
+for $x\in B, (XYf)_x=(YXf)_x$
+ 
+ \subsection*{2}
+ \noindent
+ 
+ Let $H_x(f)(u,v)\defequal (XYf)_x$, where we choose $X,Y$ so that $u=X_x$ and $v=Y_x$.
+
+We have to check that the choice of $X,Y$ does not alter the value of H, however this was proven in the previous section where we checked that $(XYf)_x$ only depended on $X_x$ and $Y_x$.
+
+Finally, since:
+\begin{equation}
+Ker H_x(f)
+=
+\{
+X\in TM
+\vert
+H_x(f)(X,Y)=0,
+\forall Y
+\}
+=
+\{
+X\in TM
+\vert
+(YXf)_x
+=0
+\forall Y
+\}
+=
+TB
+\end{equation}
+
+we deduce that the hessian of f is non-degenerate on $N_{{B/M},x}$
+. 
+
+Finally, we can choose $U$ and a local frame 
+$\mathcal{B}=\frac{\partial}{\partial x_j}$
+on $U$ so that $H_x(f)$
+has an associated symmetric matrix $M$
+so that 
+
+$$
+H_x(f)
+\left(\sum x_i\frac{\partial}{\partial x_i},
+\sum y_j\frac{\partial}{\partial x_j}
+\right)
+=\sum_{i,j}x_iy_jM_{ij}
+$$
+
+Then if we change the frame
+$\frac{\partial}{\partial x_j}$ to another frame
+$\frac{\partial}{\partial y_j}$ we have a matrix $P$ 
+a linear transformation on $TM$ so that
+$P\frac{\partial}{\partial y_j}=\frac{\partial}{\partial x_j}$.
+
+Then the matrix $M^{'}$ associated to the Hessian by the new matrix is given by:
+
+$$
+M^{'}=
+P^TMP
+$$
+
+By Sylverster's inertia theorem,
+we can find an invertible matrix $S$,
+so that
+$
+S^TMS
+$
+is diagonal.
+
+By the above discussion is enough to choose 
+$\{S^{-1}\frac{\partial}{\partial x_i}\}$, 
+as in this frame the Hessian has the form of $(0.5)$.
+
+It also clear, that since each connected component $C_j$ of $B$
+is a submanifold where $df\vert_{C_j}=0$ then $f\vert_{C_j}=const$.
+
+\subsection*{3}
+
+\begin{itemize}[label={}]
+
+\item a)
+
+By the usual Poincaré lemma, we can find a form $\gamma$ so that
+$\gamma\vert_W=0$ and $d\gamma=\alpha$.
+
+%By a theorem of the course, the inclusion $i:\Omega^k(M)^G\rightarrow\Omega^k(M)$
+%is a quasi-isomomorphism. That is, we can find a equivariant form $\beta$,
+%so that
+%$\gamma-\beta$ is exact, in particular $d\beta=\alpha$. Furthermore, since the inclusion is linear,
+%we must have that
+%$\beta\vert_W=0$.
+%
+%So $\beta$ is the form we were looking for.
+
+Since the action is trivial on $W$ we can find a 
+$G-invariant$ neighbourhood of $W$
+that we shall call $U$.
+Then we apply the standard trick of averaging $\gamma$ over $U$. Let $\beta$
+we defined as
+
+$$
+\beta
+=
+\int_U g^*\gamma d\mu
+$$
+
+Where we chose $\mu$ to be a Haar measure, as it is well-know that
+compact Lie groups admits such a measure.
+And we could normalize in the usual way by requiring
+$
+\beta
+=
+\int_U d\mu
+=
+1
+$.
+
+Then since the action is trivial on $W$, $\beta\vert_W=0$ and
+since $d$ commutes with the integral sign and with the pullback 
+by the naturality condition we have that:
+
+$$
+\begin{aligned}
+d\beta
+&=
+d\int_U g^*\gamma d\mu
+=
+\int_U g^*(d\gamma) d\mu\\
+&=
+\int_U g^*\alpha d\mu
+=
+\int_U \alpha d\mu
+\stackrel{(*)}{=}
+\alpha \int_U d\mu\\
+&=\alpha
+\end{aligned}
+$$
+
+Where $(*)$ follows because $\alpha$
+is invariant by hypothesis.
+
+Furthermore, $\beta$ is invariant by construction.
+
+\item b)
+
+We follow the proof of the standard Darboux's lemma, with a slight twist:
+
+Let $\omega_t=(1-t)\omega_0
++t\omega_1$. Then clearly, $\omega_t\vert_W=\omega_0\vert_W$.
+Then let $X_t$ be an arbitrary differential vector field,
+and let $\phi_t$ be it's flow. Then:
+
+\begin{equation}
+\begin{aligned}
+\label{eq:moser}
+\frac{d}{dt}\phi^*_t\omega_t
+&=
+\phi^*
+(
+L_{X_t}\omega_t
++
+\omega_1
+-
+\omega_0
+)
+=0
+\\
+&\iff
+L_{X_t}\omega_t
++
+\omega_1
+-
+\omega_0
+=0
+\end{aligned}
+\end{equation}
+
+Then, because the action is trivial on $W$
+we can find a neighbourhood $U$ of $W$
+so that the action of $G$ is well defined. 
+That is $g\cdot U
+\subset U,\forall g\in G$.
+
+By part a) we can, shrinking $U$ if necessary 
+find a $G$-invariant form $\beta$
+so that $d\beta=\omega_1-\omega_0$ and
+$\beta_W=0$, since $\omega_1-\omega_0$
+is in the hypothesis of a).
+
+Then, using Cartan's formula, since $\omega_t$ is closed we get:
+$L_{X_t}\omega_t=di_{X_t}\omega$.
+
+So \eqref{eq:moser} turns into:
+\begin{equation}
+\label{eq:resb}
+i_{X_t}\omega_t
++
+\beta=0
+\end{equation}
+
+Because $\omega_t$ is not degenerate, because
+it is the convex combination of two symplectic forms,
+we can solve \eqref{eq:resb} to get a 
+vector field $X_t$ that solves $\eqref{eq:moser}$,
+since $\frac{d}{dt}\phi^*_t\omega_t=0
+\implies
+\phi^*_1\omega_1=\omega_0
+$
+
+
+If we could show that $\phi_t$
+is $G$-invariant we would be done. We are going to show that
+if we define $\hat{\phi}_t=g\cdot\phi_t(g^{-1}\cdot x)$. 
+By the uniqueness guaranteed by the Picard-Lindelöf theorem we have to show that:
+
+$$
+\begin{cases}
+\frac{\partial}{\partial t}\hat{\phi}_t=X_t\hat{\phi}_t\\
+\hat{\phi}_0(x)=x
+\end{cases}
+$$
+
+For the first part:
+
+\begin{equation}
+\begin{aligned}
+\frac{\partial}{\partial t}\hat{\phi}_t
+=
+dg
+X_t
+\phi_t(g^{-1} \cdot x)
+&=
+dg
+X_t
+g^{-1}\cdot g
+\phi_t(g^{-1} \cdot x)\\
+&=
+dg
+X_t
+g^{-1}
+\hat{\phi_t}( x)
+=
+X_t
+\hat{\phi_t}(x)
+\end{aligned}
+\end{equation}
+
+Where last equality comes from the $G$-invariance of $X_t$
+which in turn comes from the $G$-invariance of $\omega_t$.
+
+
+For the second part: 
+$
+\hat{\phi}_0
+=
+g\cdot\phi_0(g^{-1}\cdot x)
+=
+g\cdot g^{-1} \cdot x
+=x
+$
+
+
+And so the invariant Darboux theorem 
+follows.
+
+\end{itemize}
+
+
+%\subsection*{4}
+
+\section*{Exercise 2}
+
+\subsection*{1}
+
+We have that $\omega$ is invariant by hypothesis,
+furthermore, since both M and $\mathbb{T}$ are compact we can
+find $\langle\cdot,\cdot\rangle$ a bi-invariant scalar product
+by the standard averaging procedure.
+
+Then there is a unique matrix $A$ so that:
+
+\begin{equation}
+\label{eq:defA}
+\omega(
+X,
+Y)
+=
+\langle
+AX,Y
+\rangle
+,\quad
+\forall X,Y\in TM
+\end{equation}
+
+Since both $\omega$ and $<\cdot,\cdot>$ are invariant, we have that by uniqueness,
+so is $A$, that is because $g^{-1}Ag$ also verifies \eqref{eq:defA} as we show.
+Let $g\in G$, then:
+
+$$
+\langle
+AX,Y
+\rangle
+\stackrel{\eqref{eq:defA}}{=}
+\omega(X,Y)
+\stackrel{
+*
+}{=}
+\omega(dg(X),dg(JY))
+=
+\langle
+Adg(X),dg(Y)
+\rangle
+\stackrel{*}{=}
+\langle
+dg^{-1}Adg(X),Y
+\rangle
+$$
+
+Where $*$ follows by the invariance of $\omega$ and $\langle \cdot,\cdot\rangle$
+
+By the skew-symmetry of $\omega$ we have that $A=-A^T$, therefore $-A^2=AA^T$
+is symmetric and we can take it's square root. (By diagonalising $-A^2=
+Pdiag(\lambda_1,\ldots,\lambda_n)P^{-1}$, 
+then $\sqrt{-A^2}=
+Pdiag(\sqrt\lambda_1,\ldots,\sqrt\lambda_n)P^{-1}$)
+
+Then 
+$
+J=
+\left(
+\sqrt{- A^2}
+\right)^{-1}A
+$
+is invariant, because $A$ is
+and is the composition of $G$-invariant homomorphism.
+
+Clearly, $J^2=- A^{-2}
+A^2=-Id$
+and $J$ is compatible with $\omega$ because:
+
+$$
+\begin{aligned}
+\omega(X,JX)
+&=
+\langle
+AX,JX
+\rangle\\
+&=
+\left\langle
+AX,
+\left(
+\sqrt{- A^2}
+\right)^{-1}A
+X
+\right\rangle
+=
+\left\langle
+X,
+\left(
+\sqrt{- A^2}
+\right)^{-1}
+X
+\right\rangle
+>0
+\end{aligned}
+$$
+
+Where the last inequality follows because $\sqrt{- A^2}^{-1}$
+is definite positive.
+
+$J$ is therefore the almost complex structure we were looking for.
+
+\subsection*{2}
+
+Since $g^{TM}$ is $G$-invariant,
+$G$ acts by isometry, and takes geodesics to geodesics.
+Let $\gamma(t,x_0,v_0)$
+be the unique geodesic starting in $x_0$ with derivative in 0 $v_0$.
+Then $exp_{x_0}(v_0)=\gamma(1,x_0,v_0)$
+
+Therefore, if $x\in M^\mathbb{T}$, let's consider
+ $\alpha(t)=g\cdot \gamma(t,x_0,v_0)$. By the above discussion, 
+ $\alpha(t)$ is also a geodesic. 
+ 
+ Since $\alpha(0))=g\cdot x_0=x_0$ and 
+ $\alpha'(0)=dg_{x_0}(\gamma'(0,x_0,v_0))
+ =dg_{x_0}(v_0)
+ $
+ 
+By uniqueness: $\alpha(t)=\gamma(t,x_0,dg_{x_0}(v_0))$.
+In particular, for t=1 we get:
+
+\begin{equation}
+\label{eq:iso}
+exp_{x_0}(dg_{x_0}(v_0))
+=
+g\cdot 
+exp_{x_0}(v_0)
+\end{equation}
+
+\subsection*{3}
+
+Let $x_0\in M^\mathbb{T}$,
+then we can restrict the $U$
+in the previous part to a $\mathbb{T}$-invariant neighbourhood.
+In this way the $\mathbb{T}$-action on $U$ is well-defined.
+Furthermore, since 
+in the previous part we used an arbitrary 
+$g\in \mathbb{T}$ we have that the exponential map is equivariant.
+
+We notice that if 
+$exp_{x_0}(v)\in M^\mathbb{T}$
+then:
+\begin{equation}
+\label{eq:identify}
+exp_{x_0}(v)
+=
+g\cdot exp_{x_0}(v)
+=
+exp_{x_0}(dg_{x_0}v),
+\quad
+\forall g\in \mathbb{T}
+\end{equation}
+
+This mens we can identify fixed points of the action in $U$
+ with fixed point of the differential of the action on $T_{x_0}M$, since
+ for $v\in T_{x_0}M, g\in\mathbb{T}$, $v=dg_{x_0}v$ because
+ of \eqref{eq:identify} and $exp$ being an isomorphism.
+ 
+That is, the exponential map send the eigenspace of $T_{x_0}M$ of eigenvalue 1 
+to $M^\mathbb{T}\cap U$. Because the exponential map is a diffeomorphism it sends
+submanifolds to submanifolds, in particular, it sends linear subspaces to submanifolds.
+
+In summary:
+Every point in $M^\mathbb{T}$
+admits a neighbourhood that is parametrised by the exponential
+map.
+
+%Then we can restrict $U$ to a coordinate neighbourhood by a map
+%$\phi$ so we have the following diagram:
+
+%$$
+%\begin{tikzcd}
+%x^{-1}
+%(
+%\cap_{g\in\mathbb{T}} 
+%\ker (Id-g)
+%) \arrow{r}{d\phi_{\phi^{-1}(x_0)}}
+%& T_{x_0}M \arrow{r}{exp_{x_0}}
+%& C \arrow[r]
+%& \cdots
+%\end{tikzcd}
+%$$
+
+And so $M^\mathbb{T}$ is a submanifold.
+
+\subsection*{4}
+
+
+Because $x_0$ is a fixed point,
+the action of $\mathbb{T}$ on $M$ lift to $T_{x_0}M$
+via the differential, in particular, given $g,h\in\mathbb{T}$:
+
+$$
+d(gh)_{x_0}
+=
+dg_{x_0}dh_{x_0}
+$$
+
+By the chain rule. (We reiterate $x_0$ is a fixed point). 
+Furthermore, since the action acts by symplectomorphism (by defintion),
+we have that because $x_0$ is a fixed point if we choose
+$g\in \mathbb{T}$:
+$$
+\omega_{x_0}(X,Y)
+=
+\omega_{g\cdot x_0}
+(dg_{x_0}X,dg_{x_0}Y)
+=
+\omega_{x_0}
+(dg_{x_0}X,dg_{x_0}Y)
+$$
+
+This proves that the action on $T_{x_0}M$
+is symplectic. It only remains to prove that the action commutes with $J$,
+however this is the definition for invariance of $J$ which we already prove.
+
+\subsection*{5}
+
+\subsection*{6}
+We define $A_g\defequal \ker(\mathbbm{1}-dg_{x_0}g)$
+to ease notation.
+
+Let $v\in A_g$
+we have that because of the previous parts
+of the exercise:
+
+\begin{equation}
+\label{eq:sub}
+v=
+dg_{x_0}(J_{x_0}v)
+=
+J_{x_0}dg_{x_0}(v)
+=
+J_{x_0}v
+\end{equation}
+
+And so 
+$J_{x_0}A_g=
+A_g
+$, because by \eqref{eq:sub} we have proved the $\subset$
+inclusion and the other inclusion comes from the fact that
+$J$ is an isomorphism since $-J$ is it's inverse.
+
+From which we conclude that:
+
+\begin{equation*}
+T_{x_0}(M^\mathbb{T})
+=
+\left(
+T_{x_0}M
+\right)^\mathbb{T}
+=
+\bigcap_{g_\in\mathbb{T}}
+A_g
+\end{equation*}
+
+If we showed that each of the $A_g$ was symplectic, then clearly
+theirs intersection would be as well and the result would follow.
+
+\bf{Claim}: $A_g$ is symplectic:
+
+\begin{proof}
+Let $g$ be an arbitrary element in $\mathbb{T}$
+and $v\in A_g$ so that $i_v\omega_{x_0}=0$.
+\end{proof}
+
+\subsection*{7}
+
+We have to prove two things:
+
+\begin{enumerate}
+
+\item $d(\mu,\tau)=i_\tau^{\mathbb{C}^n}\omega_{st}$.
+
+\begin{proof}
+We begin by seeing who is $\tau^{\mathbb{C}^n}$. 
+Let $z=x+iy\in\mathbb{C}$ then:
+
+\begin{align*}
+\tau^{\mathbb{C}^n}\vert_z
+=
+\frac{d}{ds}
+exp(s\tau)\cdot z
+&=
+(
+-i\langle w_1,\tau\rangle z_1,
+\ldots,
+-i\langle w_n,\tau\rangle z_n
+)
+\\
+&=
+(
+\langle w_1,\tau\rangle y_1,
+\langle w_1,\tau\rangle x_1,
+\ldots,
+\langle w_1,\tau\rangle y_n,
+\langle w_1,\tau\rangle x_n,
+)\\
+&=
+\sum_{j=1}^n
+\langle
+w_j,\tau
+\rangle
+\left(
+y_j\frac{\partial}{\partial x_j}
+-x_j\frac{\partial}{\partial y_j}
+\right)
+\end{align*}
+
+Again, by computation we get:
+
+$$
+i_{y_j\frac{\partial}{\partial x_j}
+-x_j\frac{\partial}{\partial y_j}}
+(dx_j\wedge dy_j)
+=
+x_jdx_j
++
+y_jdy_j
+$$
+
+And gluing all together:
+\begin{equation}
+\label{eq:inclusion}
+i_\tau^{\mathbb{C}^n}\omega_{st}
+=
+\sum_{j=1}^n
+\langle
+w_j,\tau
+\rangle
+(
+x_jdx_j
++
+y_jdy_j
+)
+\end{equation}
+
+Now be go the LHS, let's see who is 
+$d(\mu,\tau)$. Let $z\in\mathbb{C}$:
+
+\begin{align}
+\label{eq:momentum}
+d(\mu_0(z),\tau)
+=
+d\left(
+\frac{1}{2}
+\sum_{j=1}^n
+(x_j^2+y_j^2)
+(w_j,\tau)
+\right)
+=
+\sum_{j=1}^n
+(x_jdx_j+y_jdy_j)
+(w_j,\tau)
+%=
+%i_\tau^{\mathbb{C}^n}\omega_{st}
+\end{align}
+
+Joining \eqref{eq:inclusion} with \eqref{eq:momentum} we get the result.
+
+\end{proof}
+
+\item $\omega_{st}$ is equivariant, i.e
+$\mu_0(g\cdot z)=Ad_{g}^*\mu_0(z)$.
+
+\begin{proof}
+Firstly, we notice that since $\mathbb{T}$ is abelian, so is it action, in the
+sense that $Ad_{g}$ acts by identity. So the RHS is just $\mu(z)$.
+
+For the LHS, we notice that since $\mathbb{T}$ is compact, it is generated as a group
+by $\{exp(\tau),\tau\in\mathfrak{g}\}$, so if we show that 
+$\mu_0(\exp(\tau)\cdot z)=\mu_0(z)$ this would that the LHS is also equal to $\mu_0(z)$.
+
+We show the final claim:
+
+$$
+\mu_0(\exp(\tau)\cdot z)
+=
+\frac{1}{2}
+\sum_{j=1}^n
+\vert
+e^{-i\langle
+w_j,\tau
+\rangle
+}
+z_j
+\vert^2
+w_j
+=
+\frac{1}{2}
+\sum_{j=1}^n
+\vert
+z_j
+\vert^2
+w_j
+=
+\mu_0(z)
+$$
+
+
+\end{proof}
+
+\end{enumerate}
+
+\subsection*{8}
+
+By definition of moment map we have:
+$$
+d(\mu,\tau)
+=
+i_{\tau^M}\omega
+$$
+
+And unraveling the identifications in $\mu_0$
+we have that we actually have $\varphi^*\mu_0$,
+where $\varphi$ is the diffeomorphism above.
+
+$$
+d(\varphi^*\mu_0,\tau)
+=
+\varphi^*i_{\tau^{\mathbb{C}^n}}\omega_{st}
+=
+i_{\varphi^*\tau^{\mathbb{C}^n}}\varphi^*\omega_{st}
+=
+i_{\varphi^*\tau^{\mathbb{C}^n}}\omega
+$$
+
+By the non-degeneracy of $\omega$ we have that
+$$d(\mu-\mu_0)=0
+\iff i_{\tau^M}\omega-i_{\varphi^*\tau^{\mathbb{C}^n}}\omega
+\iff
+\tau^M
+=
+\varphi^*\tau^{\mathbb{C}^n}
+$$
+
+We can show that the last equality holds by direct computation:
+\begin{align*}
+\varphi^*\tau^{\mathbb{C}^n}\vert_x
+&=
+d\varphi^{-1}\left(
+\left.\frac{d}{ds}
+\varphi
+exp(s\tau)
+\cdot 
+x
+\right\vert_{s=0}
+\right)
+\\
+&=
+d\varphi^{-1}\left(
+d\varphi\left(
+\left.\frac{d}{ds}
+exp(s\tau)
+\cdot 
+x
+\right\vert_{s=0}
+\right)
+\right)
+\\
+&=
+\left.\frac{d}{ds}
+exp(s\tau)
+\cdot 
+x
+\right\vert_{s=0}
+=
+\left.\tau^M\right\vert_x
+\end{align*}
+
+Thus $d(\mu-\mu_0)=0$, 
+which implies that $(\mu,\tau)-(\mu_0,\tau)$
+is locally constant for any $\tau$. Since are working on a connected neighbourhood, 
+we deduce that 
+$
+(\mu,\tau)=(\mu(x_0),\tau)+(\mu_0,\tau)
+$.
+
+Finally, since $\tau$ is arbitrary we conclude the result.
+
+\subsection*{9}
+
+By definition
+$Crit(\mu_X)=
+\{
+x\in M:
+d\mu_x
+=0
+\}
+$
+Then by the definition of momentum map we get: 
+$$
+\begin{aligned}
+d(\mu_X)_x&=0\\
+&\iff
+d(\mu_X)_x(Y)=0,\quad \forall Y 
+\in C^\infty(M,TM)\\
+&\iff
+\omega(X^M_x,Y)=0,
+\quad \forall Y
+\in C^\infty(M,TM)\\
+&\iff
+X^M_x=0
+\end{aligned}
+$$
+
+The last equality follows from the 
+non-degeneracy of $\omega$.
+
+We notice that $X_x^M=0$ if and only if $x$ is a fixed point of the action, that is:
+
+$$
+Crit(\mu_x)
+=
+M^\mathbb{T}
+$$
+
+And so 
+$Crit(\mu_x)$
+is a symplectic submanifold because we have already proven it in $(6)$,
+
+\subsection*{10}
+
+It follows from the
+previous section that,
+since $M$ is compact, $Crit(\mu_X)$ has finitely many connected components, 
+so they are open, and therefore submanifolds themselves.
+
+The Hessian can be calculated as follows:
+$
+H_x(\mu_X)(Y,Z)
+=
+(ZY\mu_X)_x
+$
+
+Then:
+$$
+\begin{array}{l}
+Y\mu_X =
+d\mu_X(Y)=\omega(X^M,Y)\\
+ZY\mu_X =
+d(\omega(X^M,Y)(Z))
+=
+(i_{[Y,X^M]}\omega)(Z)
+=
+\omega
+(
+[Y,X^M]
+,
+Z
+)
+\end{array}
+$$
+
+It follows that:
+$
+H_x(\mu_X)(Y,Z)
+=
+\omega_x
+(
+[Y,X^M]
+,
+Z)
+$.
+
+
+\subsection*{11}
+
+
+\section*{Exercise 3}
+
+\subsection*{1}
+
+By non-degeneracy of $\omega$
+it is enough to show that for a given $X\in TM$
+we have:
+
+\begin{equation}
+\label{eq:31}
+\omega
+\left(\mu^M,X
+\right)
+=
+\omega
+\left(-\frac{1}{2}
+J(d\mathcal{H})^*))
+,
+X
+\right)
+\end{equation}
+
+On the LHS we have:
+
+
+On the RHS we have:
+
+\begin{equation}
+\begin{aligned}
+\omega
+\left(-\frac{1}{2}
+J(d\mathcal{H})^*))
+,
+X
+\right)
+&=
+-\frac{1}{2}
+g^{TM}
+\left(
+X,
+(d\mathcal{H})^*
+\right)
+\\
+&=
+-\frac{1}{2}
+(d\mathcal{H})(X)
+\\
+&=
+-\frac{1}{2}
+X\langle
+\mu(x),
+\mu(x)
+\rangle_\mathfrak{g}
+\\
+%&=
+%-
+%\langle
+%X\mu(x),
+%\mu(x)
+%\rangle_\mathfrak{g}
+\end{aligned}
+\end{equation}
+
+%Where the last equality follows from Leibniz rule, which 
+%we can apply because $\mathfrak{g}$ is a f
+
+From \eqref{eq:31} we get that $\mu^M_x=0\iff
+d\mathcal{H}_x=0$
+and so we get:
+$$
+Crit(\mathcal{H})
+=
+\{
+x\in M:
+\mu_x^M=0
+\}
+$$
+
+As we wanted.
+
+\subsection*{2}
+
+Let $\mathcal{B}=\{
+t_1,\ldots,t_n,
+x_1,\ldots,x_m
+\}$
+be an orthonormal basis of
+$\mathfrak{g}$ and 
+$\mathcal{B}^*=\{
+t_1^*,\ldots,t_n^*,
+x_1^*,\ldots,x_m^*
+\}$ it's dual basis of
+$\mathfrak{g}^*$.
+Notice that because of the orthonormality condition
+the dual basis coincides in the usual sense and in the scalar product sense.
+
+Then given $x\in M$, we have:
+$$
+\mu(x)
+=
+\sum_{i=1}^n
+u_i
+t_i
++
+\sum_{j=1}^m
+v_i
+x_i
+$$
+
+Then because $x_i\vert_\mathfrak{t}=0$ we have:
+$$
+\mu_T(x)
+=
+\sum_{i=1}^n
+u_i
+t_i
+=
+P^\mathfrak{t}
+\left(
+\sum_{i=1}^n
+u_i
+t_i
++
+\sum_{j=1}^m
+v_i
+x_i
+\right)
+=
+P^\mathfrak{t}
+\mu(x)
+$$
+
+\subsection*{3}
+
+\subsection*{4}
+This is a well-known theorem
+
+\section*{Exercise 4}
+
+\subsection*{1}
+
+\subsection*{2}
+
+\noindent
+
+Obviously $\ker D_T\subset \ker D_T^2$. Let $x\in\ker D_T^2$,
+then, because $D_T^2$ is self-adjoint:
+$$
+0=\langle
+D_T^2x,x
+\rangle
+=
+\langle
+D_Tx,
+D_Tx
+\rangle
+$$
+
+So we conclude $D_Tx=0$ and so $\ker D_T^2\subset \ker D_T$
+and $\ker D_T= \ker D_T^2$
+\subsection*{3}
+
+\subsection*{4}
+
+\end{document}
