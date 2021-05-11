@@ -797,16 +797,118 @@ T_{x_0}M
 A_g
 \end{equation*}
 
-If we showed that each of the $A_g$ was symplectic, then clearly
+If we showed that each of the $A_g$ was symplectic, then
 theirs intersection would be as well and the result would follow.
+That is the proof follows from this two claims:
 
-\bf{Claim}: $A_g$ is symplectic:
+{\bf Claim}: $A_g$ is symplectic:
+{\bf Claim}: The intersection of symplectic spaces is symplectic.
 
-\begin{proof}
+\begin{proof}(First claim)
+
+By way of contradiction.
 Let $g$ be an arbitrary element in $\mathbb{T}$
 and $v\in A_g$ so that $i_v\omega_{x_0}=0$.
+
+Because of $J_{x_0}A_g=
+A_g
+$
+we know we can find $w$
+so that $J_{x_0}w=v$. Then:
+%Let $u\in A_g$ we an arbitrary element, then:
+
+$$
+0=\omega_{x_0}(J_{x_0}w,w)
+=
+-g^{TM}_{x_0}(w,w)>0
+$$
+
+Which is a contradiction.
 \end{proof}
 
+
+\begin{proof}(Second claim)
+$A_g$ is symplectic if and only if
+$A_g\cap A_g^{\bot\omega}=\{0\}$.
+
+From this we get:
+
+\begin{equation*}
+\begin{aligned}
+\left(
+\bigcap_{
+g\in\mathbb{T}
+}
+A_g
+\right)
+\cap
+\left(
+\bigcap_{
+g\in\mathbb{T}
+}
+A_g
+\right)^{\bot\omega}
+&=
+\left(
+\bigcap_{
+g\in\mathbb{T}
+}
+A_g
+\right)
+\cap
+\left(
+\bigcup_{
+g\in\mathbb{T}
+}
+A_g^{\bot\omega}
+\right)
+\\
+&=
+\bigcap_{h\in\mathbb{T}}
+\left(
+\left(
+\bigcap_{
+g\in\mathbb{T}
+}
+A_g
+\right)
+\bigcap
+\left(
+\bigcup_{
+h\in\mathbb{T}
+}
+A_g^{\bot\omega}
+\right)
+\right)
+\\
+&=\{0\}
+\end{aligned}
+\end{equation*}
+
+And we are done.
+
+\end{proof}
+
+In summary we have proven that
+$
+T_{x_0}(M^\mathbb{T})
+$
+is symplectic.
+
+Since we have already shown that the exponential map is a symplectomorphism
+and that it maps
+$
+T_{x_0}(M^\mathbb{T})
+$ to 
+$
+\left(
+T_{x_0}M
+\right)^\mathbb{T}
+$ we conclude
+$
+M^\mathbb{T}
+$ 
+is a symplectic submanifold.
 \subsection*{7}
 
 We have to prove two things:
@@ -1019,7 +1121,11 @@ $
 (\mu,\tau)=(\mu(x_0),\tau)+(\mu_0,\tau)
 $.
 
-Finally, since $\tau$ is arbitrary we conclude the result.
+Finally, since $\tau$ is arbitrary we conclude 
+$
+\mu=\mu(x_0)+\mu_0
+$ which is what we wanted. (Notice that with the identification of $\mu$,
+we have that $\mu(0)=\mu(x_0)$).
 
 \subsection*{9}
 
@@ -1133,6 +1239,23 @@ X
 \end{equation}
 
 On the LHS we have:
+\begin{equation}
+\begin{aligned}
+\omega
+\left(\mu^M,X
+\right)
+=
+i_{\mu^M}\omega(X)
+=
+d
+\left(
+\langle
+\mu,
+\mu(x)
+\rangle_\mathfrak{g}
+\right)(X)
+\end{aligned}
+\end{equation}
 
 
 On the RHS we have:
@@ -1146,7 +1269,7 @@ J(d\mathcal{H})^*))
 X
 \right)
 &=
--\frac{1}{2}
+\frac{1}{2}
 g^{TM}
 \left(
 X,
@@ -1154,15 +1277,14 @@ X,
 \right)
 \\
 &=
--\frac{1}{2}
+\frac{1}{2}
 (d\mathcal{H})(X)
 \\
 &=
--\frac{1}{2}
-X\langle
-\mu(x),
+d(\langle
+\mu,
 \mu(x)
-\rangle_\mathfrak{g}
+\rangle_\mathfrak{g})(X)
 \\
 %&=
 %-
@@ -1191,6 +1313,34 @@ $$
 As we wanted.
 
 \subsection*{2}
+
+First we clarify the way $\mu_T$ is defined, which is by
+the following diagram:
+
+$$
+\mu_T:
+\begin{tikzcd}
+M \arrow{r}{\mu}
+& \mathfrak{g^*} \arrow{r}{h}
+& \mathfrak{g} \arrow{r}{i^*}
+& \mathfrak{t^*} \arrow{r}{h^{-1}}
+& \mathfrak{t}
+\end{tikzcd}
+$$
+
+Where $i$ is the natural inclusion:
+$
+\mathfrak{t}
+\stackrel{i}{\to}
+\mathfrak{g}
+$
+and $h$ is the natural pairing
+$
+\mathfrak{g}
+\stackrel{h}{\to}
+\mathfrak{g^*}
+$
+given by $h(u)(v)=\langle u,v\rangle_\mathfrak{g}$.
 
 Let $\mathcal{B}=\{
 t_1,\ldots,t_n,
@@ -1243,6 +1393,11 @@ P^\mathfrak{t}
 $$
 
 \subsection*{3}
+
+This is a direct consequence of Theorem 1.
+Since Theorem 1 guarantees that $\mu_T(M^T)$
+are the vertices of a convex polytope, which by definition of polytope
+means it must be finite.
 
 \subsection*{4}
 This is a well-known theorem
