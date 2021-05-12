@@ -24,7 +24,7 @@
 
 \usepackage{bbm}
 
-\usepackage[margin=1in,footskip=.25in]{geometry}
+\usepackage[margin=5ex,footskip=.25in]{geometry}
 
 
 \usepackage{geometry}
@@ -281,7 +281,7 @@ We have to check that the choice of $X,Y$ does not alter the value of H, however
 
 Finally, since:
 \begin{equation}
-Ker H_x(f)
+\ker H_x(f)
 =
 \{
 X\in TM
@@ -294,7 +294,7 @@ H_x(f)(X,Y)=0,
 X\in TM
 \vert
 (YXf)_x
-=0
+=0,\;\;
 \forall Y
 \}
 =
@@ -331,7 +331,7 @@ M^{'}=
 P^TMP
 $$
 
-By Sylverster's inertia theorem,
+By Sylvester's inertia theorem,
 we can find an invertible matrix $S$,
 so that
 $
@@ -339,7 +339,7 @@ S^TMS
 $
 is diagonal.
 
-By the above discussion is enough to choose 
+By the above discussion, it's enough to choose 
 $\{S^{-1}\frac{\partial}{\partial x_i}\}$, 
 as in this frame the Hessian has the form of $(0.5)$.
 
@@ -365,7 +365,7 @@ $\gamma\vert_W=0$ and $d\gamma=\alpha$.
 %So $\beta$ is the form we were looking for.
 
 Since the action is trivial on $W$ we can find a 
-$G-invariant$ neighbourhood of $W$
+$G$-invariants neighbourhood of $W$
 that we shall call $U$.
 Then we apply the standard trick of averaging $\gamma$ over $U$. Let $\beta$
 we defined as
@@ -380,8 +380,6 @@ Where we chose $\mu$ to be a Haar measure, as it is well-know that
 compact Lie groups admits such a measure.
 And we could normalize in the usual way by requiring
 $
-\beta
-=
 \int_U d\mu
 =
 1
@@ -400,9 +398,9 @@ d\int_U g^*\gamma d\mu
 \int_U g^*(d\gamma) d\mu\\
 &=
 \int_U g^*\alpha d\mu
-=
-\int_U \alpha d\mu
 \stackrel{(*)}{=}
+\int_U \alpha d\mu
+=
 \alpha \int_U d\mu\\
 &=\alpha
 \end{aligned}
@@ -412,6 +410,7 @@ Where $(*)$ follows because $\alpha$
 is invariant by hypothesis.
 
 Furthermore, $\beta$ is invariant by construction.
+This proves the theorem.
 
 \item b)
 
@@ -779,7 +778,7 @@ e^{i\tau_k}
 $$
 
 And so the action induced on $V$ must be of the above form, since it's linear
-and unitary.
+and acts by elements of $U(n)$.
 
 \subsection*{6}
 We define $A_g\defequal \ker(\mathbbm{1}-dg_{x_0}g)$
@@ -989,7 +988,7 @@ $$
 And gluing all together:
 \begin{equation}
 \label{eq:inclusion}
-i_\tau^{\mathbb{C}^n}\omega_{st}
+i_{\tau^{\mathbb{C}^n}}\omega_{st}
 =
 \sum_{j=1}^n
 \langle
@@ -1036,7 +1035,8 @@ sense that $Ad_{g}$ acts by identity. So the RHS is just $\mu(z)$.
 
 For the LHS, we notice that since $\mathbb{T}$ is compact, it is generated as a group
 by $\{exp(\tau),\tau\in\mathfrak{g}\}$, so if we show that 
-$\mu_0(\exp(\tau)\cdot z)=\mu_0(z)$ this would that the LHS is also equal to $\mu_0(z)$.
+$\mu_0(\exp(\tau)\cdot z)=\mu_0(z)$ this would that the LHS is equal to $\mu_0(z)$
+for any $z\in\mathbb{T}$.
 
 We show the final claim:
 
@@ -1287,8 +1287,8 @@ $$
 \lambda_1 & 0 & \cdots & 0 &0\\
 0 & \lambda_1 & \cdots & 0&0\\
 \vdots & \vdots & \ddots & \vdots&\vdots\\
-0 & 0 & 0 & \lambda_n&0\\
-0 & 0 & 0 & 0&\lambda_n\\
+0 & 0 & \cdots& \lambda_n&0\\
+0 & 0 & \cdots & 0&\lambda_n\\
 \end{pmatrix}
 $$
 
@@ -2410,7 +2410,8 @@ $\vert\mu^M\vert>0$ by hypothesis. This means we can choose $T$
 large enough so that $T^2\vert\mu^M\vert^2$ is larger than 
 the rest of the terms in $(0.24)$. (Notice some other terms also depend
 on $T$, but they depend lineally, so we can dominate them).
-This means, for this $T$ sufficiently large we have $\vert D_T,D_T\vert>0$
+This means, for this $T$ sufficiently large we have 
+$\langle D_T,D_T\rangle>0$
 and so $\ker D_T=\{0\}$.
 
 Since
