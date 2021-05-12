@@ -1212,6 +1212,9 @@ H_x(\mu_X)(Y,Z)
 Z)
 $.
 
+Since $[Y,X^M]=L_{X^M}Y=
+\left.\frac{d}{dt}\right\vert_{t=0}exp(-tX)_*Y$
+
 
 \subsection*{11}
 
@@ -1342,6 +1345,23 @@ $
 $
 given by $h(u)(v)=\langle u,v\rangle_\mathfrak{g}$.
 
+Equivariance of $\mu_T$ is trivial since 
+if $\mu(g\cdot x)=Ad_g^*\mu(x)$ is true for any $g\in G$
+then it certainly true for any $g\in T\subset G$.
+
+By the same logic, if $X\in T$ then $X^M$
+coincides if seen as an element of $T$
+or as an element of $G$ because it is defined in the same exact manner,
+and because $i^*X=X$ we have that
+$(\mu,X)=(\mu_T,X)$ so we have that:
+
+$$
+i_{X^M}\omega=d(\mu_T,X)
+$$
+
+Which proves $\mu_T$ is a moment map.
+
+
 Let $\mathcal{B}=\{
 t_1,\ldots,t_n,
 x_1,\ldots,x_m
@@ -1365,11 +1385,11 @@ u_i
 t_i
 +
 \sum_{j=1}^m
-v_i
-x_i
+v_j
+x_j
 $$
 
-Then because $x_i\vert_\mathfrak{t}=0$ we have:
+Then because $i^*x_j=x_j\vert_\mathfrak{t}=0$ we have:
 $$
 \mu_T(x)
 =
@@ -1400,11 +1420,289 @@ are the vertices of a convex polytope, which by definition of polytope
 means it must be finite.
 
 \subsection*{4}
-This is a well-known theorem
+This is a direct consequence
+of a classic theorem in Functional Analysis, 
+however here we give a slightly simplified proof for the 
+case of finite dimension and the case where the point exterior to the set is the origin.
+
+
+
+Firstofall, if $0\in A$
+we are done. If not, let:
+
+$$
+\delta=dist(0,A)
+= \inf_{x\in A}\vert x\vert
+>0
+$$
+
+Where the strict inequality comes from the fact that $A$ is closed.
+
+We have to show 2 thing:
+
+\begin{enumerate}
+
+\item There exists $x\in A$ so that $\vert x\vert =\delta$.
+
+\item There is only one such $x\in A$.
+
+\end{enumerate}
+
+\begin{proof}(Existence)
+
+Because $\delta$ is defined as an infimum,
+we can find a sequence of points $x_n$ so that
+$\vert x_n\vert\to \delta$.
+By picking a subsequence, we may assume $x_n$
+that 
+$$
+x\leq \vert x_n\vert 
+\leq
+x+\frac{1}{n+1}
+$$
+
+Let $n,m\in\mathbb{N}$,
+then by hypothesis 
+$d\leq\frac{1}{2}
+(y_n+y_m)\in A$.
+
+By direct computation we have:
+
+\begin{equation}
+\begin{aligned}
+\delta^2\leq
+\left\vert
+\frac{1}{2}y_n
++
+\frac{1}{2} y_m
+\right\vert^2
+&\stackrel{(1)}{=}
+\frac{1}{2}\left(
+\left\vert
+y_n
+\right\vert^2
++
+\left\vert
+y_m
+\right\vert^2
+\right)
+-
+\frac{1}{4}
+\left\vert
+y_n
++
+y_m
+\right\vert^2
+\\
+&\leq
+\delta^2
++
+\frac{1}{2}
+\left(
+\left(\frac{1}{n+1}
+\right)^2
++
+2d\left(
+\frac{1}{n+1}
++
+\frac{1}{m+1}
+\right)
++
+\left(
+\frac{1}
+{m+1}
+\right)^2
+\right)
+-\frac{1}{4}
+\vert
+x_n-x_m
+\vert^2
+\end{aligned}
+\end{equation}
+From which we get:
+
+\begin{center}
+\begin{tabular}{l}
+$
+\vert
+x_n-x_m
+\vert^2
+\leq
+2
+\left(
+\left(\frac{1}{n+1}
+\right)^2
++
+2d\left(
+\frac{1}{n+1}
++
+\frac{1}{m+1}
+\right)
++
+\left(
+\frac{1}
+{m+1}
+\right)^2
+\right)
+$
+\\
+$
+\vert
+x_n-x_m
+\vert^2
+\stackrel{n,m\to\infty}\longrightarrow
+0
+$
+\end{tabular}
+\end{center}
+
+Which means $\{x_n\}$ is a Cauchy sequence and therefore convergent, 
+because $A$ is closed we get that the limit is in $A$ and obviously the limit has 
+norm $\delta$ by the continuity of the norm.
+
+
+\end{proof}
+
+\begin{proof}(Uniqueness)
+Suppose $x,x'\in A$, $x\neq x'$, so that 
+$
+\vert x\vert
+=
+\vert x'\vert
+=
+\delta
+$
+
+Let 
+$y = \frac{1}{2} x +(1-\frac{1}{2} x')$.
+By hypothesis $y\in A$ and so $\vert y\vert \geq \delta$
+
+And so by use of the parallelogram identity:
+
+$$
+\delta^2
+\leq
+\frac{1}{2}
+\leq
+\left\vert \frac{1}{2} x+
+(1-\frac{1}{2})x'
+\right\vert^2
+=
+2
+\left(
+\left\vert \frac{1}{2} x
+\right\vert^2
++
+\left\vert
+\frac{1}{2}x'
+\right\vert^2
+\right)
+-
+\frac{1}{2}
+\left\vert  x-x'
+\right\vert^2
+=
+\delta^2
+-
+\frac{1}{2}
+\left\vert  x-x'
+\right\vert^2
+<
+\delta^2
+$$
+
+Where the last inequality comes because $\left\vert  x-x'
+\right\vert^2
+>0$.
+
+\end{proof}
+
 
 \section*{Exercise 4}
 
 \subsection*{1}
+
+Let $\alpha,\beta\in\Omega^{0,k}(M)$
+and $\langle
+\cdot,\cdot
+\rangle$
+be the scalar product we have seen in class for $(0,k)$
+forms.
+
+We have to show
+that: 
+$
+\langle
+D_T \alpha,\beta
+\rangle
+=
+\langle
+\alpha,D_T\beta
+\rangle
+$
+We compute:
+
+\begin{align*}
+\langle
+D_T \alpha,\beta
+\rangle
+=
+\langle
+D+iTc(\mu^M)\alpha,\beta
+\rangle
+=
+\langle
+D\alpha
+,
+\beta\rangle
++
+\langle
+i
+Tc(\mu^M)\alpha,\beta
+\rangle
+\end{align*}
+
+By the lectures we know that $D$
+is self-adjoint so 
+$\langle
+D \alpha,\beta
+\rangle
+=
+\langle
+\alpha,D\beta
+\rangle
+$
+.
+It is therefore enough to prove that 
+$
+i
+Tc(\mu^M
+$
+is self-adjoint.
+Because $c(\mu^M)^*=-c(\mu^M)$,
+and because $\langle \cdot,\cdot\rangle$
+is hermitian:
+
+\begin{align*}
+\langle
+i
+Tc(\mu^M)\alpha,\beta
+\rangle
+=
+\langle
+\alpha,
+-i
+T(-c(\mu^M))
+\beta
+\rangle
+=
+\langle
+\alpha,
+i
+Tc(\mu^M)
+\beta
+\rangle
+\end{align*}
 
 \subsection*{2}
 
@@ -1424,8 +1722,88 @@ D_Tx
 $$
 
 So we conclude $D_Tx=0$ and so $\ker D_T^2\subset \ker D_T$
-and $\ker D_T= \ker D_T^2$
+and $\ker D_T= \ker D_T^2$.
+
+
+The last part is clear since
+$\ker D_{+,T}=
+\ker
+D_T\vert_
+{
+\Omega^{0,\text{even}}
+(M,L)
+}
+=\ker(D_T)\cap
+\Omega^{0,\text{even}}
+(M,L)
+\subset
+\Omega^{0,\text{even}}
+$
+and
+in a completely analogous manner
+$\ker D_{-,T}=
+\ker
+D_T\vert_
+{
+\Omega^{0,\text{odd}}
+(M,L)
+}
+=\ker(D_T)\cap
+\Omega^{0,\text{odd}}
+(M,L)
+\subset
+\Omega^{0,\text{odd}}
+$
+
 \subsection*{3}
+
+The first equality is trivial from the previous part since $\ker D_T^2=\ker D_T$.
+The last equality would follow (as we will show) if
+$D_T$ were $G$-equivariant.
+On the one hand $D$ is $G$-equivariant as has been shown in the lectures.
+$\mu^M$ is also $G$-equivariant as we have shown in the previous exercise.
+So $D_T$ must be $G$-equivariant as well, and a fortiori
+$D_{\pm,T}$ must be invariant by $G$. And so:
+
+\begin{align*}
+\ker D_T\vert_
+{
+\Omega^{0,\text{even}}(M,L)^G
+}
+&=
+\ker D_T\cap
+\Omega^{0,\text{even}}(M,L)^G
+=
+\ker D_T^2\cap
+\Omega^{0,\text{even}}(M,L)^G\\
+&\stackrel{(*)}{=}
+\left(
+\ker D_{+,T}\cap
+\oplus
+\ker D_{-,T}
+\right)
+\cap
+\Omega^{0,\text{even}}(M,L)^G
+\\
+&=
+\ker D_{+,T}
+\cap
+\Omega^{0,\text{even}}(M,L)^G
+=
+\ker D_{+,T}^G
+\end{align*}
+
+Where $(*)$ follows because $D_T$
+decomposes as 
+$D_T
+=D_{+,T}
++
+D_{-,T}$
+And the case for $D_{-,T}$ is
+completely analogous (except replacing 
+$\Omega^{0,\text{even}}(M,L)^G$
+with 
+$\Omega^{0,\text{odd}}(M,L)^G$). 
 
 \subsection*{4}
 
