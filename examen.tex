@@ -759,6 +759,8 @@ however this is the definition for invariance of $J$ which we already prove.
 
 \subsection*{5}
 
+
+
 \subsection*{6}
 We define $A_g\defequal \ker(\mathbbm{1}-dg_{x_0}g)$
 to ease notation.
@@ -1138,7 +1140,8 @@ d\mu_x
 \}
 $
 Then by the definition of momentum map we get: 
-$$
+\begin{equation}
+\label{eq:tangent}
 \begin{aligned}
 d(\mu_X)_x&=0\\
 &\iff
@@ -1151,7 +1154,7 @@ d(\mu_X)_x(Y)=0,\quad \forall Y
 &\iff
 X^M_x=0
 \end{aligned}
-$$
+\end{equation}
 
 The last equality follows from the 
 non-degeneracy of $\omega$.
@@ -1170,10 +1173,19 @@ is a symplectic submanifold because we have already proven it in $(6)$,
 
 \subsection*{10}
 
-It follows from the
-previous section that,
-since $M$ is compact, $Crit(\mu_X)$ has finitely many connected components, 
-so they are open, and therefore submanifolds themselves.
+%It follows from the
+%previous section that,
+%since $M$ is compact, $Crit(\mu_X)$ has finitely many connected components, 
+%so they are open, and therefore submanifolds themselves.
+
+It follows from the previous section that 
+$
+Crit(\mu_x)
+=
+M^\mathbb{T}
+$ 
+and 
+by $(6)$ $Crit(\mu_x)$ is symplectic submanifold.
 
 The Hessian can be calculated as follows:
 $
@@ -1198,6 +1210,13 @@ d(\omega(X^M,Y)(Z))
 ,
 Z
 )
+=
+\omega
+(
+L_Y(X^M)
+,
+Z
+)
 \end{array}
 $$
 
@@ -1212,12 +1231,50 @@ H_x(\mu_X)(Y,Z)
 Z)
 $.
 
-Since $[Y,X^M]=L_{X^M}Y=
-\left.\frac{d}{dt}\right\vert_{t=0}exp(-tX)_*Y$
+Since $[Y,X^M]=L_{Y}X^M=
+\left.\frac{d}{dt}\right\vert_{t=0}exp(-tY)_*X^M$.
+Which means by \eqref{eq:tangent}
+that:
+$$
+TCrit(\mu_X)
+=
+\{
+Y\in TM:
+L_{Y}X^M=0
+\}
+=
+\bigcap_{Y\in TM}\ker H_x(\mu_X)(Y)
+$$
+
+This proves the Hessian is non-degenerate on the set of critical points.
+Bringing this together with the fact that $Crit(\mu_X)$
+is a submanifold  we conclude that $\mu_X$ is a Morse-Bott function.
 
 
 \subsection*{11}
 
+
+By (0.10) in the exam, we have that he hessian of $\mu$ as identified in $\mathbb{C}^n$
+and then identified again in $\mathbb{R}^{2n}$ is
+ $\frac{1}{2}\sum_{j=1}^n(x_j^2+y_j^2)\omega_j(X)$. 
+ 
+ Where by the $\mathbb{C}^n$ to $\mathbb{R}^{2n}$
+identification we mean identifying $z=x+iy$ with $(x,y)$.
+
+This means the matrix of the Hessian is as follows:
+$$
+\begin{pmatrix}
+\lambda_1 & 0 & \cdots & 0 &0\\
+0 & \lambda_1 & \cdots & 0&0\\
+\vdots & \vdots & \ddots & \vdots&\vdots\\
+0 & 0 & 0 & \lambda_n&0\\
+0 & 0 & 0 & 0&\lambda_n\\
+\end{pmatrix}
+$$
+
+That is every eigenvalue appears twice due to the identification.
+So there must a even number of them that are negative (maybe $0$, but even nonetheless).
+Which proves the result.
 
 \section*{Exercise 3}
 
@@ -1617,6 +1674,29 @@ Where the last inequality comes because $\left\vert  x-x'
 
 \end{proof}
 
+\subsection*{5}
+
+By definition each element  $b$ of $\mathcal{B}$
+is associated to a subset of $\mathcal{P}(\mathcal{A})$
+which is finite because $\mathcal{A}$ is finite. In particular,
+$\#\mathcal{P}(\mathcal{A})=
+2^{\mathcal{A}}$ so:
+$$
+\#\mathcal{P}(\mathcal{A})<\infty
+\iff
+\#\mathcal{A}<\infty
+$$
+
+Since this association of $\mathcal{B}$
+with subsets of $\mathcal{A}$ gives and injection we have:
+$$
+\#\mathcal{B}
+\leq
+\mathcal{P}(\mathcal{A})
+<\infty
+$$
+
+Which is what we wanted.
 
 \section*{Exercise 4}
 
@@ -1805,6 +1885,111 @@ $\Omega^{0,\text{even}}(M,L)^G$
 with 
 $\Omega^{0,\text{odd}}(M,L)^G$). 
 
+\begin{align*}
+D_T^2
+\left(
+D+iTc(\mu^m)
+\right)
+\left(
+D+iTc(\mu^m)
+\right)
+=
+D^2
++T^2
+\vert
+\mu^M\vert^2
++
+iT
+(
+Dc(\mu^M)
++c(\mu^M)D
+)
+\end{align*}
+
+So we have to show that we can find some $A_M$
+0-order differential operator so that:
+
+\begin{equation}
+\label{eq:44}
+iT
+(
+Dc(\mu^M)
++c(\mu^M)D
+)
+=
+TA_M
+-2iT
+\sum^{\text{dim }G}_{i=1}
+\mu_iL_{V_i}
+\end{equation}
+
+Let's see who is
+$
+Dc(\mu^M)
++c(\mu^M)D
+$
+
+\begin{align*}
+Dc(\mu^M)
++c(\mu^M)D
+&=
+\sum^{2n}_{j=1}
+c(\mu^M)
+c(e_j)
+\nabla^{Cl\otimes L}_{e_j}
++
+c(e_j)
+\nabla^{Cl\otimes L}_{e_j}
+c(\mu^M)
+\\
+&\stackrel{(1)}{=}
+\sum^{2n}_{j=1}
+c(\mu^M)
+c(e_j)
+\nabla^{Cl\otimes L}_{e_j}
++
+c(e_j)
+c(\mu^M)
+\nabla^{Cl\otimes L}_{e_j}
++
+c(e_j)
+c
+(
+\nabla^{TM}_{e_j}\mu^M
+)\\
+&=
+\sum^{2n}_{j=1}
+\left(
+c(\mu^M)
+c(e_j)
++
+c(e_j)\right)
+\nabla^{Cl\otimes L}_{e_j}
++
+c(e_j)
+c
+(
+\nabla^{TM}_{e_j}\mu^M
+)
+\\
+&=
+-2g^{TM}(\mu^M,e_j)
+\nabla^{Cl\otimes L}_{e_j}
++
+c(e_j)
+c
+(
+\nabla^{TM}_{e_j}\mu^M
+)
+\end{align*}
+
+Where $(1)$ follows from 
+$[\nabla^{Cl\otimes L}_V,c(W)]
+=
+c(\nabla^{Cl\otimes L}_V W)$
+
 \subsection*{4}
+
+Let $\alpha\in\Omega^{0,\cdot}(M,L)$
 
 \end{document}
