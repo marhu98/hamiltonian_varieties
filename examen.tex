@@ -759,7 +759,27 @@ however this is the definition for invariance of $J$ which we already prove.
 
 \subsection*{5}
 
+At this point we suspect that $\varphi$ might be given
+by the exponential map with the natural identification of $B(x_0,\delta)$
+with $\mathbb{R}^{2n}$, that is, under indentification: $\varphi=exp_{x_0}^{-1}$.
+This is obviously a diffeomorphism and it is $\mathbb{T}$-equivariant because
+we have defined precisely the action as the induced by this diffeomorphism.
 
+Furthermore, by the section on compact Lie groups we know that there 
+is a natural identification of $\mathbb{T}^k$ with $(\mathbb{S}^1)^k$
+given by:
+$$
+exp(\tau)
+=
+(
+e^{i\tau_1}
+,\ldots,
+e^{i\tau_k}
+)
+$$
+
+And so the action induced on $V$ must be of the above form, since it's linear
+and unitary.
 
 \subsection*{6}
 We define $A_g\defequal \ker(\mathbbm{1}-dg_{x_0}g)$
@@ -1272,6 +1292,7 @@ $$
 \end{pmatrix}
 $$
 
+Where $\lambda_i\defequal(w_i,X)$.
 That is every eigenvalue appears twice due to the identification.
 So there must a even number of them that are negative (maybe $0$, but even nonetheless).
 Which proves the result.
@@ -1885,8 +1906,14 @@ $\Omega^{0,\text{even}}(M,L)^G$
 with 
 $\Omega^{0,\text{odd}}(M,L)^G$). 
 
+
+\subsection*{4}
+
+We have that:
+
 \begin{align*}
 D_T^2
+=
 \left(
 D+iTc(\mu^m)
 \right)
@@ -1980,16 +2007,182 @@ c(e_j)
 c
 (
 \nabla^{TM}_{e_j}\mu^M
-)
+)\\
+&=
+-2\nabla^{Cl\otimes L}_{\mu^M}
++
+c(e_j)
+c(\nabla_{e_j}^{TM}
+\mu^M)
 \end{align*}
 
 Where $(1)$ follows from 
 $[\nabla^{Cl\otimes L}_V,c(W)]
 =
-c(\nabla^{Cl\otimes L}_V W)$
+c(\nabla^{Cl\otimes L}_V W)$. (This identity holds 
+for
+$\nabla^{Cl}_V$
+so it's trivial to check it follows as well 
+for $\nabla^{Cl\otimes L}=
+\nabla{Cl}\otimes \mathbbm{1}
++
+\mathbbm{1}
+\otimes
+\nabla^L$
+).
 
-\subsection*{4}
+Let $\alpha\in\Omega^{0,\cdot}(M,L)$. $\alpha$ is 
+locally of the form $\tilde{\alpha}\otimes s$ for $\tilde{\alpha}
+\in
+C^\infty
+(
+M,
+\Lambda^\cdot T^{(0,1)}M
+)$
+and
+$v\in C^\infty(M,L)$.
 
-Let $\alpha\in\Omega^{0,\cdot}(M,L)$
+And so if $V\in TM$ we have:
+$$
+L_V\alpha
+=
+(L_V\tilde{\alpha})\otimes s
++
+\tilde{\alpha}\otimes
+(L_V s)
+$$.
+
+Where we are abusing the overloading the notation of $L_V$.
+
+By Kostant's formula we have that:
+
+$$
+\nabla^L_{K^M}=
+L_{K^M}
++
+2\pi i(\mu, K),\quad
+\forall K\in\mathfrak{g}
+$$
+
+Then we can express $\mu^M$ in the given coordinates:
+$
+\mu^M
+=
+\sum_{i=1}^{dim G}\mu_i V_i
+$
+
+and so:
+$$
+\nabla^L_{\mu^M}s
+=
+\sum_{i=1}^{dim G}\mu_i \nabla^L_{V_i^M}s
+=
+\sum_{i=1}^{dim G}\mu_i \left(
+L_{V_i^M}s+2\pi i (\mu, V_i)
+\right)s
+$$
+
+Finally, notice that although
+$
+\nabla^L_{\mu^M}
+$
+is not a linear operator because 
+$
+\nabla^{Cl}_{\mu^M}(\phi \beta)
+=
+(L_{\mu^M}\phi)\beta 
++
+\phi
+\nabla_{\mu^M}^{Cl}\beta
+$.
+ But this means it is an affine operator, so it's a summand of
+ the Lie derivative plus some linear operator, $\tilde{A}_M$, so we define:
+ $\tilde{\tilde{A}}_M\defequal \tilde{A_M}\otimes\mathbbm{1}$
+ 
+Putting everything together we get:
+
+\begin{align*}
+D_T^2
+&=
+D^2
++T^2
+\vert
+\mu^M\vert^2
++
+iT
+(
+Dc(\mu^M)
++c(\mu^M)D
+)
+\\
+&=
+D^2
++T^2
++T
+\left(
+ic(e_j)c(\nabla_{e_j}^{TM}\mu^M)
+-2i
+\sum_{i=1}^{dim G}
+(
+\mu_i
+(2\pi i (\mu,V_i)+\tilde{\tilde{A}}_M)
+\right)
+-2iT
+\left(
+\sum_{i=1}^{dim G}
+\mu_i
+L_{V_i}
+\right)
+\end{align*}
+
+And so defining $A\defequal
+ic(e_j)c(\nabla_{e_j}^{TM}\mu^M)
+-2i
+\sum_{i=1}^{dim G}
+(
+\mu_i
+(2\pi i (\mu,V_i)+\tilde{\tilde{A}}_M)
+$
+we are done.
+
+\subsection*{5}
+
+We know from $(0.15)$
+that:
+$$
+\mu^{-1}(0)\subset
+Crit(\mathcal{H}))
+=
+\{
+x\in M\vert
+\mu^M\vert_x=0
+\}
+=
+\emptyset
+$$
+
+On one hand $M$ is compact and
+$\vert\mu^M\vert>0$ by hypothesis. This means we can choose $T$
+large enough so that $T^2\vert\mu^M\vert^2$ is larger than 
+the rest of the terms in $(0.24)$. (Notice some other terms also depend
+on $T$, but they depend lineally, so we can dominate them).
+This means, for this $T$ sufficiently large we have $\vert D_T,D_T\vert>0$
+and so $\ker D_T=\{0\}$.
+
+Since
+by definition $ind(D_+)^G
+=
+\dim
+(\ker D_+)^G
+-
+(\ker D_-)^G$
+
+and both $(\ker D_+)^G$
+and $(\ker D_-)^G$
+are subspaces of 
+$(\ker D_\pm)^G$
+we get that their dimension is both $0$.
+
+So $ind(D_+)^G=0$, which is what we wanted.
 
 \end{document}
