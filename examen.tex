@@ -1404,7 +1404,7 @@ $$
 M \arrow{r}{\mu}
 & \mathfrak{g^*} \arrow{r}{h}
 & \mathfrak{g} \arrow{r}{i^*}
-& \mathfrak{t^*} \arrow{r}{h^{-1}}
+& \mathfrak{t^*} \arrow{r}{h^{-1}\vert_{\mathfrak{t^*}}}
 & \mathfrak{t}
 \end{tikzcd}
 $$
@@ -1701,7 +1701,7 @@ By definition each element  $b$ of $\mathcal{B}$
 is associated to a subset of $\mathcal{P}(\mathcal{A})$
 which is finite because $\mathcal{A}$ is finite. In particular,
 $\#\mathcal{P}(\mathcal{A})=
-2^{\mathcal{A}}$ so:
+2^{\mathcal{\#A}}$ so:
 $$
 \#\mathcal{P}(\mathcal{A})<\infty
 \iff
@@ -1718,6 +1718,250 @@ $$
 $$
 
 Which is what we wanted.
+
+\subsection*{6}
+
+We already know by the previous part of the exercise that
+$Crit(\mu_\beta)
+=
+\{
+x\in M\vert
+\beta_x^M=0
+\}
+$.
+
+The set
+$Z_\beta
+=
+\{
+x\in M\vert
+\beta_x^M=0
+,\;
+\mu_\beta(x)
+\vert
+\beta\vert^2
+\}
+$ is clearly closed in $Crit(\mu_\beta)$
+by continuity of $\vert\cdot\vert^2$.
+Furthermore, since $\mu_\beta$ must be locally constant along
+the connected components of 
+$Crit(\mu_\beta)$ we conclude
+$Z_\beta$ must be relatively open in $Crit(\mu_\beta)$.
+
+This means $Z_\beta$ is clopen in $Crit(\mu_\beta)$ 
+and so is the union of open connected components of $Crit(\mu_\beta)$ 
+(we know they are open because there are only a finite amount of them due 
+to $M$ being compact).
+
+In particular, this means $Z_\beta$ is the disjoint union of symplectic manifolds.
+Since being symplectic is a local condition (it is a condition on the differential, which is local
+and on the tangent space on a point, which obviously local) we conclude
+that $Z_\beta$ must be symplectic.
+
+\subsection*{7}
+
+Since for $\mu(x)\in\mathfrak{t}^*$
+$\mu(x)=\mu_T(x)$ by $(2)$
+
+From this we have:
+$$
+x\in Crit(\mathcal{H})
+\iff
+x\in Crit(\vert\mu\vert^2)
+\iff
+x\in
+Crit(\vert\mu_T\vert^2)
+$$
+
+We now prove the following: {\bf Claim}:
+Given $x\in M$ with $\mu_T(x)=\beta\in\mathfrak{t}$.
+Then we have that $x\in Crit(\mathcal{H})$ if and only if
+$x\in Z_\beta$. And when this happens $\beta$ is the element of minimal norm in $\mu_t(Z_\beta)$
+which is obviously a convex set.
+
+\begin{proof}
+We have the following:
+
+$$
+x\in Crit(\mathcal{H})
+\iff
+\left.\mu^M\right\vert_x=0
+\iff
+\beta^M_X=0
+$$
+
+Where the last double implication comes from exercise 2 part 9 (and the definition).
+
+And so the first implication ($\Rightarrow$) follows by the definition of $Z_\beta$.
+
+For the $\Leftarrow$ implication we know by Theorem 1
+that $\mu_T(Z_\beta)
+=
+\text{convex hull}(\mu_T(Z_\beta^T))$
+
+By the previous part there exits a element of minimal norm 
+in $\mu_T(Z_\beta)$.
+We only have to show that this point is $\beta$.
+Let's argue by way of contradiction, let $\gamma$
+be the point of minimal norm, in particular,
+$\vert
+\gamma\vert<\vert \beta\vert$
+and we can find $x\in Z_\beta$
+so that $\gamma=\mu(x)=\mu_T(x)$, where 
+the last equality holds because $\mu_t(Z_\beta)\subset\mathfrak{t}$.
+
+We have that by definition of $Z_\beta$ (and by the identification of $\mathfrak{t}$
+with $\mathfrak{t^*}$) that
+$
+\langle
+\mu(y),
+\beta\rangle
+=
+\langle
+\beta,
+\beta
+\rangle
+$
+
+from which trivially we have:
+
+\begin{align*}
+&\langle
+\mu(y)-\beta,
+\beta\rangle
+=
+0
+\\
+&
+\vert\gamma\vert^2
+=
+\vert\mu_T(y)\vert^2
+=
+\langle
+\mu(y),
+\mu(y)
+\rangle
+\stackrel{\pm\beta}{=}
+\langle
+\mu(y)-\beta,
+\mu(y)-\beta
+\rangle
++
+\langle
+\beta,
+\beta
+\rangle
+=
+\vert
+\mu(y)-\beta
+\vert^2
++
+\vert\beta\vert^2
+<
+\vert\beta\vert^2
+\end{align*}
+
+Which is a contradiction and so we have proven the claim above.
+\end{proof}
+
+It follows immediately from the equivariance of $\mu$
+that $g\cdot Crit(\mathcal{H})=Crit(\mathcal{H})$.
+
+Putting all together we have that:
+
+$$
+g\cdot x\in Crit(\mathcal{H})
+\iff
+g\cdot z\in Z_\beta
+\iff
+x\in C_\beta
+$$
+
+Which shows: $Crit(\mathcal{H})
+=
+\cup_{\beta\in\mathcal{B}}C_\beta
+$
+
+It only remains to show that $C_\beta$
+are disjoint. Let $\beta\in\mathcal{B}$, then:
+$$
+\mu(C_\beta)
+=
+\{
+\mu(g\cdot x)\vert
+x\in Z_\beta\cap\mu^{-1}(\beta),g\in G
+\}
+\{
+Ad_g(\mu(x))
+\vert
+x\in Z_\beta,
+\mu(x)=\beta,g\in G
+\}
+=
+Ad_G(\beta)
+=\mathcal{O}_\beta 
+$$
+
+And by a theorem of the course we know that each coadjoint orbit intersects each positive Weyl chamber number in precisely one point, this directly implies that
+$C_\beta$
+are disjoint since otherwise we could use the coadjoint action to bring a point
+in the intersection
+to a point in 
+a 
+positive Weyl chamber, which will mean two different coadjoint orbits intersect, 
+which is imposible.
+
+\subsection*{8}
+
+We just showed: $
+\mu(C_\beta)
+=
+Ad_G(\beta)
+$
+
+We can actually say more:
+
+\begin{align*}
+C_\beta
+&=
+\{
+g\cdot x\vert g\in G,
+x\in Z_\beta,
+\mu(x)=\beta
+\}
+=
+\{
+g\cdot x\vert g\in G,
+x\in Crit(\mathcal{H}),
+\mu(x)=\beta
+\}
+\\
+&=
+\{
+g\cdot x\vert g\in G,
+g\cdot x\in Crit(\mathcal{H}),
+\mu(x)=\beta
+\}
+=
+\{
+x\in Crit(\mathcal{H})
+\vert
+\exists g\in G,\;\;
+\mu(x)=Ad_g(\beta)
+\}
+\end{align*}
+
+As we have already seen $x\in C_\beta\implies x\in Z_\beta$
+and $\mathcal{H}(x)=\vert\mu(x)\vert^2=\vert\beta\vert^2$
+for any $x$ in $C_\beta$,
+where again we have omitted the dual identification.
+
+So we have proven: 
+$
+\mathcal{H}(C_\beta)=
+\vert\beta\vert^2
+$
+
 
 \section*{Exercise 4}
 
@@ -1777,12 +2021,12 @@ $
 It is therefore enough to prove that 
 $
 i
-Tc(\mu^M
+Tc(\mu^M)
 $
 is self-adjoint.
 Because $c(\mu^M)^*=-c(\mu^M)$,
 and because $\langle \cdot,\cdot\rangle$
-is hermitian:
+is hermitian it follows that:
 
 \begin{align*}
 \langle
